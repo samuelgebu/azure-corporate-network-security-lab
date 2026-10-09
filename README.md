@@ -65,6 +65,28 @@ The [screenshots folder](images/screenshots/) is the designated location for **s
 
 **Privacy:** Public IP addresses, subscription IDs, account emails, passwords, and tokens should be obscured before publication. Private lab addresses such as `10.20.1.4` are intentionally retained to make the network design understandable.
 
+## Azure Portal screenshot gallery
+
+The following are screenshots from the project author's Azure Portal session. They document configuration screens at the time of capture; they do **not** independently establish current VM power state or successful connectivity.
+
+### 1. Resource group
+![Azure resource group](images/screenshots/resource-group.png)
+
+### 2. Virtual network
+![Azure virtual network configuration](images/screenshots/virtual-network.png)
+
+### 3. Subnet configuration
+![Azure subnet configuration](images/screenshots/subnet-configuration.png)
+
+### 4. Virtual machine configuration
+![Azure virtual machine configuration](images/screenshots/virtual-machine.png)
+
+### 5. Management network security group
+![Azure management NSG configuration](images/screenshots/management-nsg.png)
+
+### 6. Server network security group
+![Azure server NSG configuration](images/screenshots/server-nsg.png)
+
 ## Documentation
 
 - [Network security group rules](docs/security-rules.md)
