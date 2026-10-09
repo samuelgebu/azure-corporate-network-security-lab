@@ -17,11 +17,11 @@ I built this hands-on lab to understand how an organization can segment cloud ne
 |---|---|
 | Resource group | `RG-CORP-NETWORK-LAB` |
 | Region | South Africa North |
-| Virtual network | `VNET-CORP-LAB` — `10.20.0.0/16` |
-| Management | `SNET-MANAGEMENT` — `10.20.1.0/24` — `NSG-MANAGEMENT` |
-| Servers | `SNET-SERVERS` — `10.20.2.0/24` — `NSG-SERVERS` |
-| Application | `SNET-APPLICATION` — `10.20.3.0/24` — `NSG-APPLICATION` |
-| Database | `SNET-DATABASE` — `10.20.4.0/24` — `NSG-DATABASE` |
+| Virtual network | `VNET-CORP-LAB` — `[REDACTED_IP]` |
+| Management | `SNET-MANAGEMENT` — `[REDACTED_IP]` — `NSG-MANAGEMENT` |
+| Servers | `SNET-SERVERS` — `[REDACTED_IP]` — `NSG-SERVERS` |
+| Application | `SNET-APPLICATION` — `[REDACTED_IP]` — `NSG-APPLICATION` |
+| Database | `SNET-DATABASE` — `[REDACTED_IP]` — `NSG-DATABASE` |
 
 ## Virtual machines
 
