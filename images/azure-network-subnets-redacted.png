@@ -1,0 +1,14 @@
+### Virtual Network Configuration
+
+I created VNET-CORP-LAB with an address space of
+10.20.0.0/16 to simulate a corporate network.
+
+![Azure VNet Overview](images/03-virtual-network-overview.png)
+
+### Network Segmentation
+
+I divided the network into four subnets for
+Management, Servers, Applications, and Databases.
+Each subnet has its own Network Security Group.
+
+![Azure Subnets](images/02-virtual-network-subnets.png)
