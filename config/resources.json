@@ -1,0 +1,20 @@
+{
+  "note": "Sanitized summary, not full original resource inventory",
+  "resourceGroup": "RG-CORP-NETWORK-LAB",
+  "region": "southafricanorth",
+  "virtualNetworks": [
+    "VNET-CORP-LAB"
+  ],
+  "networkSecurityGroups": [
+    "NSG-MANAGEMENT",
+    "NSG-SERVERS",
+    "NSG-APPLICATION",
+    "NSG-DATABASE"
+  ],
+  "virtualMachines": [
+    "VM-MGMT-01",
+    "VM-SERVER-01",
+    "VM-APP-01"
+  ],
+  "databaseVmFound": false
+}
