@@ -7,6 +7,10 @@
 ## Why I built this
 I built this hands-on lab to understand how an organization can segment cloud networks, restrict traffic between server roles, administer Windows VMs and troubleshoot real connectivity problems.
 
+## Network architecture
+
+![Azure network architecture](images/architecture.svg)
+
 ## Azure environment
 
 | Component | Configuration |
