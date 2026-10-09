@@ -4,21 +4,21 @@
     {
       "name": "VM-MGMT-01",
       "subnet": "SNET-MANAGEMENT",
-      "privateIp": "10.20.1.4",
+      "privateIp": "[REDACTED_IP]",
       "os": "Windows",
       "size": "Standard_B2ats_v2"
     },
     {
       "name": "VM-SERVER-01",
       "subnet": "SNET-SERVERS",
-      "privateIp": "10.20.2.4",
+      "privateIp": "[REDACTED_IP]",
       "os": "Windows",
       "size": "Standard_DS1_v2"
     },
     {
       "name": "VM-APP-01",
       "subnet": "SNET-APPLICATION",
-      "privateIp": "10.20.3.4",
+      "privateIp": "[REDACTED_IP]",
       "os": "Windows",
       "size": "Standard_DS1_v2"
     }
