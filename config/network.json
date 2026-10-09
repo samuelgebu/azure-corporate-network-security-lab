@@ -4,27 +4,27 @@
   "virtualNetwork": {
     "name": "VNET-CORP-LAB",
     "addressSpace": [
-      "[REDACTED_IP]"
+      "10.20.0.0/16"
     ],
     "subnets": [
       {
         "name": "SNET-MANAGEMENT",
-        "prefix": "[REDACTED_IP]",
+        "prefix": "10.20.1.0/24",
         "nsg": "NSG-MANAGEMENT"
       },
       {
         "name": "SNET-SERVERS",
-        "prefix": "[REDACTED_IP]",
+        "prefix": "10.20.2.0/24",
         "nsg": "NSG-SERVERS"
       },
       {
         "name": "SNET-APPLICATION",
-        "prefix": "[REDACTED_IP]",
+        "prefix": "10.20.3.0/24",
         "nsg": "NSG-APPLICATION"
       },
       {
         "name": "SNET-DATABASE",
-        "prefix": "[REDACTED_IP]",
+        "prefix": "10.20.4.0/24",
         "nsg": "NSG-DATABASE"
       }
     ]
