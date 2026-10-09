@@ -7,9 +7,9 @@
 ## Why I built this
 I built this hands-on lab to understand how an organization can segment cloud networks, restrict traffic between server roles, administer Windows VMs and troubleshoot real connectivity problems.
 
-## Network architecture
+## Evidence status
 
-![Azure network architecture](images/architecture.svg)
+This README is an author-assisted narrative based on prior project information, **not an automatically verified export from the user's live Azure account**. No generated diagrams or reconstructed configuration files are presented as primary evidence. Genuine Azure screenshots and an export should be added after the author reviews them.
 
 ## Azure environment
 
@@ -37,7 +37,7 @@ The inventory establishes deployment, not live power state.
 ## Network security
 I configured subnet-level NSGs to restrict inbound access. Management-to-Server RDP (TCP 3389) is permitted, and the Application subnet permits HTTP/HTTPS (80/443) from the Management subnet. The Database NSG permits SQL TCP 1433 from the Application subnet, but no database endpoint was verified. Public RDP access to the Management VM is restricted to a specific administrator IP, redacted from this portfolio.
 
-See [network architecture](docs/architecture.md), [security rule details](docs/security-rules.md), and [export findings](docs/export-findings.md).
+See [security rule details](docs/security-rules.md) and [export findings](docs/export-findings.md).
 
 ## Tests and lessons learned
 - **Management → Server, TCP 3389:** succeeded using `Test-NetConnection`.
