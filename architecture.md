@@ -3,17 +3,17 @@
 ```mermaid
 flowchart TB
   Internet([Administrator workstation]) -->|RDP 3389 restricted to trusted public IP| MGMT
-  subgraph VNET["VNET-CORP-LAB · 10.20.0.0/16 (logical overview)"]
-    subgraph M["SNET-MANAGEMENT · 10.20.1.0/24 · NSG-MANAGEMENT"]
-      MGMT["VM-MGMT-01 · 10.20.1.4"]
+  subgraph VNET["VNET-CORP-LAB · [REDACTED_IP] (logical overview)"]
+    subgraph M["SNET-MANAGEMENT · [REDACTED_IP] · NSG-MANAGEMENT"]
+      MGMT["VM-MGMT-01 · [REDACTED_IP]"]
     end
-    subgraph S["SNET-SERVERS · 10.20.2.0/24 · NSG-SERVERS"]
-      SRV["VM-SERVER-01 · 10.20.2.4"]
+    subgraph S["SNET-SERVERS · [REDACTED_IP] · NSG-SERVERS"]
+      SRV["VM-SERVER-01 · [REDACTED_IP]"]
     end
-    subgraph A["SNET-APPLICATION · 10.20.3.0/24 · NSG-APPLICATION"]
-      APP["VM-APP-01 · 10.20.3.4 · IIS"]
+    subgraph A["SNET-APPLICATION · [REDACTED_IP] · NSG-APPLICATION"]
+      APP["VM-APP-01 · [REDACTED_IP] · IIS"]
     end
-    subgraph D["SNET-DATABASE · 10.20.4.0/24 · NSG-DATABASE"]
+    subgraph D["SNET-DATABASE · [REDACTED_IP] · NSG-DATABASE"]
       DB["VM-DB-01 · private IP to verify · SQL setup pending"]
     end
   end
