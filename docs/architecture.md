@@ -3,17 +3,17 @@
 ```mermaid
 flowchart TB
     Admin[Administrator workstation] -->|Restricted public RDP 3389| MGMT
-    subgraph VNET["VNET-CORP-LAB · [REDACTED_IP]"]
-        subgraph M["Management · [REDACTED_IP] · NSG-MANAGEMENT"]
+    subgraph VNET["VNET-CORP-LAB · 10.20.0.0/16"]
+        subgraph M["Management · 10.20.1.0/24 · NSG-MANAGEMENT"]
             MGMT[VM-MGMT-01]
         end
-        subgraph S["Servers · [REDACTED_IP] · NSG-SERVERS"]
+        subgraph S["Servers · 10.20.2.0/24 · NSG-SERVERS"]
             SERVER[VM-SERVER-01]
         end
-        subgraph A["Application · [REDACTED_IP] · NSG-APPLICATION"]
+        subgraph A["Application · 10.20.3.0/24 · NSG-APPLICATION"]
             APP[VM-APP-01 · IIS]
         end
-        subgraph D["Database · [REDACTED_IP] · NSG-DATABASE"]
+        subgraph D["Database · 10.20.4.0/24 · NSG-DATABASE"]
             DB["Database VM · NOT FOUND in export"]
         end
     end
