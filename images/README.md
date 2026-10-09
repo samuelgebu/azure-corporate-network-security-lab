@@ -1,16 +1,9 @@
-# Azure Portal Screenshot Evidence
+# Screenshot evidence — privacy review
 
-The original Azure Portal screenshots have been prepared for redacted publication. The six screenshots below were taken during setup or configuration; they are **not** proof that resources remain deployed or running.
+The architecture diagram is in [architecture.svg](architecture.svg) and its editable Mermaid counterpart is in [docs/architecture.md](../docs/architecture.md).
 
-| Screenshot | What it demonstrates |
-|---|---|
-| `screenshots/resource-group-setup.png` | Resource group setup |
-| `screenshots/vnet-setup.png` | Virtual network creation |
-| `screenshots/subnet-configuration.png` | Four subnet address ranges |
-| `screenshots/vm-setup.png` | VM network configuration |
-| `screenshots/nsg-management.png` | Management NSG inbound rules |
-| `screenshots/nsg-database.png` | Database NSG inbound rules |
+Six real Azure Portal screenshots have been redacted locally to cover the top account/browser bar and large areas containing IP addresses, resource identifiers and configuration values. **These PNG screenshots are not yet present in this repository.** Their sanitized ZIP is available in the conversation, ready for upload to `images/screenshots/` after review.
 
-**Before publication:** the image package has the top 120 pixels masked to conceal account and browser identifiers. Review the remaining screenshot body for any personal or subscription information before committing. Upload only sanitized PNGs to `images/screenshots/`. The architecture diagram is available at [architecture.svg](architecture.svg).
+The published documentation and diagrams also replace IP addresses with `[REDACTED_IP]`. Note: earlier Git commits may retain prior content; replacing the latest files does not erase Git history.
 
-**Evidence limitation:** These are screenshots of Azure Portal setup and NSG configuration, not independent proof of deployment or SQL Server operation.
+Screenshot filenames: `resource-group-setup.png`, `vnet-setup.png`, `subnet-configuration.png`, `vm-setup.png`, `nsg-management.png`, `nsg-database.png`.
