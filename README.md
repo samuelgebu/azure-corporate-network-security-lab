@@ -1,121 +1,53 @@
-# Azure Corporate Network Infrastructure and Security Lab
+# Azure Corporate Network Infrastructure & Security Lab
 
-**Project by Samuel Gebu**
+**Samuel Gebu | Azure Administration & Cloud Networking Portfolio**
 
-## Project Overview
+> **Status:** Four subnets, four NSGs and three Windows VMs deployed. IIS and internal connectivity tested. Database VM and SQL connectivity remain pending.
 
-As part of my journey toward becoming an Azure Administrator and Cloud Engineer, I decided to build a corporate network environment in Microsoft Azure.
+## Why I built this
+I built this hands-on lab to understand how an organization can segment cloud networks, restrict traffic between server roles, administer Windows VMs and troubleshoot real connectivity problems.
 
-My goal was to understand how organizations deploy virtual machines, separate network resources, control traffic between servers, and securely manage their infrastructure.
+## Network architecture
 
-Rather than focusing only on theory, I wanted hands-on experience configuring and troubleshooting a working cloud network.
+![Azure network architecture](images/architecture.svg)
 
-## Project Objectives
+## Azure environment
 
-- Build a corporate virtual network in Microsoft Azure.
-- Separate infrastructure into Management, Server, Application, and Database subnets.
-- Deploy and manage Windows Server virtual machines.
-- Configure Network Security Groups (NSGs).
-- Restrict unnecessary communication between subnets.
-- Set up secure administrative access.
-- Deploy an IIS web server.
-- Test network connectivity using PowerShell.
+| Component | Configuration |
+|---|---|
+| Resource group | `RG-CORP-NETWORK-LAB` |
+| Region | South Africa North |
+| Virtual network | `VNET-CORP-LAB` — `10.20.0.0/16` |
+| Management | `SNET-MANAGEMENT` — `10.20.1.0/24` — `NSG-MANAGEMENT` |
+| Servers | `SNET-SERVERS` — `10.20.2.0/24` — `NSG-SERVERS` |
+| Application | `SNET-APPLICATION` — `10.20.3.0/24` — `NSG-APPLICATION` |
+| Database | `SNET-DATABASE` — `10.20.4.0/24` — `NSG-DATABASE` |
 
-## Technologies Used
+## Virtual machines
 
-- Microsoft Azure
-- Azure Virtual Network
-- Azure Virtual Machines
-- Network Security Groups
-- Windows Server 2025
-- Remote Desktop Protocol (RDP)
-- Internet Information Services (IIS)
-- Windows PowerShell
-
-## Network Architecture
-
-I created a virtual network called `VNET-CORP-LAB` and divided it into four subnets.
-
-| Subnet | IP Address Range | Purpose |
+| VM | Purpose | Export status |
 |---|---|---|
-| Management | 10.20.1.0/24 | Administrative access |
-| Servers | 10.20.2.0/24 | Server infrastructure |
-| Application | 10.20.3.0/24 | Application hosting |
-| Database | 10.20.4.0/24 | Database infrastructure |
+| `VM-MGMT-01` | Administrative access | Deployed |
+| `VM-SERVER-01` | Internal Windows server | Deployed |
+| `VM-APP-01` | IIS web server | Deployed |
+| `VM-DB-01` | Planned SQL database | **Not present in export** |
 
-The environment includes four Windows Server virtual machines:
+The inventory establishes deployment, not live power state.
 
-- `VM-MGMT-01`
-- `VM-SERVER-01`
-- `VM-APP-01`
-- `VM-DB-01`
+## Network security
+I configured subnet-level NSGs to restrict inbound access. Management-to-Server RDP (TCP 3389) is permitted, and the Application subnet permits HTTP/HTTPS (80/443) from the Management subnet. The Database NSG permits SQL TCP 1433 from the Application subnet, but no database endpoint was verified. Public RDP access to the Management VM is restricted to a specific administrator IP, redacted from this portfolio.
 
-## Implementation
+See [network architecture](docs/architecture.md), [security rule details](docs/security-rules.md), and [export findings](docs/export-findings.md).
 
-### 1. Virtual Network Configuration
+## Tests and lessons learned
+- **Management → Server, TCP 3389:** succeeded using `Test-NetConnection`.
+- **Management → Application, TCP 3389:** failed as expected under the isolation policy.
+- **Management → Application, HTTP 80:** succeeded; IIS welcome page loaded.
+- **Application → Database, TCP 1433:** not verified.
 
-I started by creating a resource group and an Azure Virtual Network.
+I troubleshot RDP authentication and configuration issues, reviewed NSG rules, and learned to validate traffic with actual connection tests rather than assuming a configured rule guarantees access.
 
-I then configured four separate subnets to organize the environment according to the roles of the servers.
+## Next steps
+Deploy and configure the database VM, validate SQL connectivity, capture genuine Azure Portal screenshots with sensitive details redacted, and review security hardening options such as Azure Bastion or just-in-time VM access.
 
-### 2. Virtual Machine Deployment
-
-I deployed Windows Server virtual machines into their respective subnets.
-
-This gave me practical experience with Azure VM deployment, network interfaces, private IP addressing, and virtual machine administration.
-
-### 3. Network Security
-
-I configured Network Security Groups to control inbound traffic.
-
-The security rules were designed to allow only necessary connections, including RDP administration, HTTP traffic, and planned SQL Server communication.
-
-### 4. Remote Desktop Configuration
-
-One of the challenges I encountered was connecting to the Management VM through Remote Desktop.
-
-I investigated the connection using PowerShell, reviewed the NSG configuration, reset the administrator credentials, and repaired the RDP configuration.
-
-After troubleshooting, I successfully connected to the Management VM and used it to administer other servers.
-
-### 5. IIS Web Server Deployment
-
-I installed Internet Information Services on the Application VM.
-
-To verify the deployment, I opened the IIS welcome page from the Management VM using the Application VM's private IP address.
-
-This confirmed that the web server was accessible over the configured network.
-
-### 6. Network Connectivity Testing
-
-I used the PowerShell `Test-NetConnection` command to check communication between virtual machines.
-
-The tests included:
-
-- Management to Server over RDP: Successful.
-- Management to Application over RDP: Blocked as intended.
-- Management to Application over HTTP: Successful.
-
-These tests helped me understand how network security rules affect communication between different subnets.
-
-## Challenges and Lessons Learned
-
-This project helped me understand that deploying cloud infrastructure involves more than creating resources.
-
-I learned how important it is to configure network security correctly, troubleshoot connectivity issues, and test whether systems can communicate as intended.
-
-The Remote Desktop troubleshooting was especially valuable because it required me to investigate different possible causes rather than assume the problem was with the virtual machine itself.
-
-## Current Progress
-
-The virtual network, subnet segmentation, Windows Server deployment, NSG configuration, and IIS connectivity testing have been completed.
-
-The next stage involves completing SQL Server configuration and validating database connectivity from the Application subnet.
-
-## Conclusion
-
-Building this environment has strengthened my understanding of Azure networking, Windows Server administration, and cloud security.
-
-I plan to continue improving the lab as I develop my skills in Azure Administration, Cloud Networking, and Cloud Engineering.
-
-**Author: Samuel Gebu**
+**Author:** Samuel Gebu

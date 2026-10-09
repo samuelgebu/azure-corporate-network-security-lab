@@ -1,0 +1,32 @@
+{
+  "resourceGroup": "RG-CORP-NETWORK-LAB",
+  "region": "southafricanorth",
+  "virtualNetwork": {
+    "name": "VNET-CORP-LAB",
+    "addressSpace": [
+      "10.20.0.0/16"
+    ],
+    "subnets": [
+      {
+        "name": "SNET-MANAGEMENT",
+        "prefix": "10.20.1.0/24",
+        "nsg": "NSG-MANAGEMENT"
+      },
+      {
+        "name": "SNET-SERVERS",
+        "prefix": "10.20.2.0/24",
+        "nsg": "NSG-SERVERS"
+      },
+      {
+        "name": "SNET-APPLICATION",
+        "prefix": "10.20.3.0/24",
+        "nsg": "NSG-APPLICATION"
+      },
+      {
+        "name": "SNET-DATABASE",
+        "prefix": "10.20.4.0/24",
+        "nsg": "NSG-DATABASE"
+      }
+    ]
+  }
+}
