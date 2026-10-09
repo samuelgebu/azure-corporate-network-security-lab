@@ -5,7 +5,7 @@
 **Region:** South Africa North.
 
 ## Confirmed
-- VNet `VNET-CORP-LAB` (`[REDACTED_IP]`).
+- VNet `VNET-CORP-LAB` (`10.20.0.0/16`).
 - Four /24 subnets: Management, Servers, Application, Database.
 - Four matching subnet-level NSGs.
 - Three Windows VMs: `VM-MGMT-01`, `VM-SERVER-01`, `VM-APP-01`.
